@@ -6,7 +6,7 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuard implements CanActivate {
+export class DashboardGuard implements CanActivate {
   constructor(private auth: AngularFireAuth, private router: Router) {
   }
 
@@ -15,8 +15,8 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return new Promise((resolve, reject) => {
       this.auth.onAuthStateChanged((user) => {
-        if (user) {
-          this.router.navigate(['/dashboard'])
+        if (!user) {
+          this.router.navigate(['/login'])
           resolve(false)
         } else {
           resolve(true)

@@ -4,7 +4,7 @@
       <img src="/assets/angular.png">
     </div>
     <h1 class="mat-h3"> login</h1>
-    <form [formGroup]="loginForm" autocomplete="off">
+    <form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="login()">
       <mat-form-field class="input" appearance="fill">
         <mat-label>Email</mat-label>
         <input type="email" matInput formControlName="email" placeholder="Ex. example@example.com">
