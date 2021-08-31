@@ -8,11 +8,16 @@ import {Router} from "@angular/router";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  email: string = ''
 
   constructor(private auth: AngularFireAuth, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.auth.onAuthStateChanged((user) => {
+      // @ts-ignore
+      this.email = user.email;
+    })
   }
 
   f() {
