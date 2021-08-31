@@ -7,6 +7,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "./shared/shared.module";
 import {LoginGuard} from "./login/login.guard";
 import {DashboardGuard} from "./dashboard/dashboard.guard";
+import {CommonModule} from "@angular/common";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -17,7 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [LoginComponent,DashboardComponent],
-  imports: [RouterModule.forRoot(routes), ReactiveFormsModule, SharedModule],
+  imports: [RouterModule.forRoot(routes), ReactiveFormsModule, SharedModule, CommonModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

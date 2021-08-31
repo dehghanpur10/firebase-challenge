@@ -1,5 +1,8 @@
 <div class="wrapper">
   <div class="wrapper-login">
+    <div class="progress">
+      <mat-progress-bar *ngIf="progress" mode="indeterminate"></mat-progress-bar>
+    </div>
     <div class="img">
       <img src="/assets/angular.png">
     </div>
@@ -13,6 +16,8 @@
         <mat-label>Password</mat-label>
         <input type="password" matInput formControlName="password">
       </mat-form-field>
+
+
       <button class="input" mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">login</button>
 
     </form>

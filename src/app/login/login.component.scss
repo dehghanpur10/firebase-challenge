@@ -14,7 +14,7 @@
 
   &-login {
     width: 25%;
-    padding:25px 0;
+    padding-bottom:25px;
     border-radius: 7px;
     box-shadow: 0 0 5px black;
     background-color: white;
@@ -40,10 +40,14 @@
       .input, button {
         width: 90%;
       }
+
     }
   }
 }
-
+.progress{
+  @extend %center;
+  min-height: 25px;
+}
 @media only screen and (max-width: 1200px) {
   .wrapper-login{
     width: 40%;
