@@ -8,16 +8,19 @@ import {SharedModule} from "./shared/shared.module";
 import {LoginGuard} from "./login/login.guard";
 import {DashboardGuard} from "./dashboard/dashboard.guard";
 import {CommonModule} from "@angular/common";
+import {AppModule} from "./app.module";
+import {TopToolBarComponent} from "./dashboard/top-tool-bar/top-tool-bar.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
-  {path: 'dashboard', component: DashboardComponent,canActivate:[DashboardGuard]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [DashboardGuard]},
   {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({
-  declarations: [LoginComponent,DashboardComponent],
+  declarations: [LoginComponent, DashboardComponent, TopToolBarComponent,
+  ],
   imports: [RouterModule.forRoot(routes), ReactiveFormsModule, SharedModule, CommonModule],
   exports: [RouterModule]
 })

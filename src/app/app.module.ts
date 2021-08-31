@@ -8,13 +8,15 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/env';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
-import {SharedModule} from './shared/shared.module'
+import { AddRecordComponent } from './dashboard/add-record/add-record.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    AddRecordComponent,
+
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -22,6 +24,9 @@ import {SharedModule} from './shared/shared.module'
     AngularFireAuthModule,
   ],
   providers: [],
+  exports: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

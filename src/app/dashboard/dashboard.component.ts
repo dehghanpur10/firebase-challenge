@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {Router} from "@angular/router";
 
@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
   email: string = ''
+  @ViewChild('drawer') drawer: any;
 
   constructor(private auth: AngularFireAuth, private router: Router) {
   }
@@ -18,6 +19,10 @@ export class DashboardComponent implements OnInit {
       // @ts-ignore
       this.email = user.email;
     })
+  }
+
+  toggle() {
+    this.drawer.toggle()
   }
 
   f() {

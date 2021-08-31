@@ -1,13 +1,88 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span style="margin-right: auto">Firebase Challenge</span>
-  <span class="example-spacer"></span>
-  <div class="email">
-    <mat-icon>email</mat-icon>
-    <h6>{{email}}</h6>
-  </div>
+<mat-drawer-container style="min-height: 100vh;" [hasBackdrop]="true">
 
-</mat-toolbar>
-<button (click)="f()">logout</button>
+  <mat-drawer  style="width:200px;height: 100vh" #drawer mode="over">
+    <div class="drawer" >
+      <button mat-stroked-button color="primary" (click)="f()">sign out</button>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-top-tool-bar [email]="email" (toggle)="toggle()"></app-top-tool-bar>
+
+
+
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+    <button mat-raised-button >Toggle drawer</button>
+  </mat-drawer-content>
+
+</mat-drawer-container>
