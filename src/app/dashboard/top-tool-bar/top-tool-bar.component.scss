@@ -8,3 +8,8 @@ h6{
   font-size: 13pt;
   margin-left: 3px;
 }
+@media only screen and (max-width: 560px) {
+  .email{
+    display: none;
+  }
+}

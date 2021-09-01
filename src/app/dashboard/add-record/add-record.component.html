@@ -1,1 +1,59 @@
-<p>add-record works!</p>
+<div class="wrapper">
+  <div class="progress">
+    <mat-progress-bar *ngIf="progress" mode="indeterminate"></mat-progress-bar>
+  </div>
+  <form [formGroup]="addForm" class="example-form" (ngSubmit)="save()" >
+    <div class="select-wrapper">
+      <mat-form-field class="item" appearance="fill">
+        <mat-label>company</mat-label>
+        <mat-select
+          required
+                formControlName="company"
+                (selectionChange)="getProject()"
+        >
+          <mat-option *ngFor="let c of company" [value]="c.id">{{c.name}}</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <mat-form-field class="item" appearance="fill">
+        <mat-label>project</mat-label>
+        <mat-select
+          required
+                formControlName="project"
+                (selectionChange)="getTask()"
+        >
+          <mat-option *ngFor="let p of project" [value]="p.id">{{p.name}}</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <mat-form-field class="item" appearance="fill">
+        <mat-label>task</mat-label>
+        <input type="text"
+               formControlName="task"
+
+               required
+               matInput
+               [matAutocomplete]="taskAuto">
+        <mat-autocomplete   #taskAuto="matAutocomplete">
+          <mat-option *ngFor="let t of task" [value]="t.name">{{t.name}}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+    </div>
+    <div class="select-wrapper">
+      <mat-form-field class="item" appearance="fill">
+        <mat-label>hours</mat-label>
+        <input type="number"
+               required
+               matInput
+               min="1"
+               formControlName="hours"
+        >
+      </mat-form-field>
+      <button mat-raised-button color="primary">save</button>
+
+    </div>
+  </form>
+</div>

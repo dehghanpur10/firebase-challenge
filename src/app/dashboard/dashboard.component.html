@@ -2,12 +2,13 @@
 
   <mat-drawer  style="width:200px;height: 100vh" #drawer mode="over">
     <div class="drawer" >
+      <h2>menu</h2>
       <button mat-stroked-button color="primary" (click)="f()">sign out</button>
     </div>
   </mat-drawer>
   <mat-drawer-content>
     <app-top-tool-bar [email]="email" (toggle)="toggle()"></app-top-tool-bar>
-
+    <app-add-record></app-add-record>
 
 
     <button mat-raised-button >Toggle drawer</button>

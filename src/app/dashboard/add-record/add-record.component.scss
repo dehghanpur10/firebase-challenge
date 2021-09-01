@@ -1,0 +1,25 @@
+.wrapper,.select-wrapper,.submit-wrapper{
+  width: 100%;
+}
+.progress{
+  min-height: 20px;
+}
+.select-wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .item{
+    margin: 0 10px;
+  }
+  button{
+    width: 60px;
+    height: 51px;
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .item{
+    width: 100%;
+  }
+}

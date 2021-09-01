@@ -9,9 +9,13 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {CommonModule} from "@angular/common";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
 
 
 const materialComponents = [
+  MatSelectModule,
+  MatAutocompleteModule,
   MatSidenavModule,
   MatToolbarModule,
   MatProgressBarModule,

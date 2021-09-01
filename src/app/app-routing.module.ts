@@ -8,8 +8,8 @@ import {SharedModule} from "./shared/shared.module";
 import {LoginGuard} from "./login/login.guard";
 import {DashboardGuard} from "./dashboard/dashboard.guard";
 import {CommonModule} from "@angular/common";
-import {AppModule} from "./app.module";
 import {TopToolBarComponent} from "./dashboard/top-tool-bar/top-tool-bar.component";
+import {AddRecordComponent} from "./dashboard/add-record/add-record.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -19,8 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [LoginComponent, DashboardComponent, TopToolBarComponent,
-  ],
+  declarations: [LoginComponent, DashboardComponent, TopToolBarComponent, AddRecordComponent],
   imports: [RouterModule.forRoot(routes), ReactiveFormsModule, SharedModule, CommonModule],
   exports: [RouterModule]
 })
