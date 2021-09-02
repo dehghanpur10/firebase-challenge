@@ -1,0 +1,15 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &-table {
+    width: 97%;
+
+    table {
+      width: 100%;
+
+    }
+  }
+}

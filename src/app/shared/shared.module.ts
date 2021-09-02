@@ -11,9 +11,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 const materialComponents = [
+  MatPaginatorModule,
+  MatTableModule,
   MatSelectModule,
   MatAutocompleteModule,
   MatSidenavModule,

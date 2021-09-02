@@ -10,6 +10,7 @@ import {DashboardGuard} from "./dashboard/dashboard.guard";
 import {CommonModule} from "@angular/common";
 import {TopToolBarComponent} from "./dashboard/top-tool-bar/top-tool-bar.component";
 import {AddRecordComponent} from "./dashboard/add-record/add-record.component";
+import {TableComponent} from './dashboard/table/table.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -19,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [LoginComponent, DashboardComponent, TopToolBarComponent, AddRecordComponent],
+  declarations: [LoginComponent, DashboardComponent, TopToolBarComponent, AddRecordComponent, TableComponent],
   imports: [RouterModule.forRoot(routes), ReactiveFormsModule, SharedModule, CommonModule],
   exports: [RouterModule]
 })

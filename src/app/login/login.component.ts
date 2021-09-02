@@ -26,13 +26,13 @@ export class LoginComponent implements OnInit {
     this.progress = true;
     const email = this.loginForm.get('email')?.value
     const password = this.loginForm.get('password')?.value
+
     this.auth.signInWithEmailAndPassword(email, password).then(result => {
         this._snackBar.open("hello " + result.user?.email, '', {
           duration: 5000
         });
       this.progress = false;
       return this.router.navigate(['/login']);
-
       }
     ).catch(()=>{
       this._snackBar.open("this user not found", '', {

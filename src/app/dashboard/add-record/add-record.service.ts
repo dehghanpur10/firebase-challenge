@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {map, mergeMap, tap,first} from 'rxjs/operators'
+import { tap,first} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +45,7 @@ export class AddRecordService {
     const projectRef = this.store.doc('/project/' + projectId).ref;
     const taskRef = this.store.doc('/task/' + taskId).ref;
     const id = this.store.createId()
+
     return this.store.collection('record').doc(id).set({
       company: companyRef,
       project: projectRef,
