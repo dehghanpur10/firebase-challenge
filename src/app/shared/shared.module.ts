@@ -13,6 +13,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 const materialComponents = [
@@ -32,7 +34,7 @@ const materialComponents = [
 ]
 @NgModule({
   declarations: [],
-  imports: [CommonModule,materialComponents],
+  imports: [ReactiveFormsModule,BrowserAnimationsModule,CommonModule,materialComponents],
   exports: [materialComponents]
 })
 export class SharedModule { }

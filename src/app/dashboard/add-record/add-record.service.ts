@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import { tap,first} from 'rxjs/operators'
+import {tap, first, map} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -28,19 +28,23 @@ export class AddRecordService {
 
     return this.store.collection('task', ref => ref.where('name', '==', task)).valueChanges({idField: 'id'}).pipe(
       first(),
-      tap(async tasks => {
+      map(async tasks => {
+        let isNewTask = false;
         let taskId: string;
         if (tasks.length > 0) {
           taskId = tasks[0].id
         } else {
+          isNewTask = true
           taskId = await this.createTask(task, projectId)
         }
-        await this.createRecord(companyId, projectId, taskId, hours)
-      })
+        const recordId = await this.createRecord(companyId, projectId, taskId, hours)
+        return {recordId, isNewTask} as { recordId: string, isNewTask: boolean }
+      }),
     )
   }
 
-  private createRecord(companyId: string, projectId: string, taskId: string, hours: number) {
+
+  createRecord(companyId: string, projectId: string, taskId: string, hours: number) {
     const companyRef = this.store.doc('/company/' + companyId).ref;
     const projectRef = this.store.doc('/project/' + projectId).ref;
     const taskRef = this.store.doc('/task/' + taskId).ref;
@@ -56,7 +60,7 @@ export class AddRecordService {
     })
   }
 
-  private createTask(name: string, projectId: string) {
+  createTask(name: string, projectId: string) {
     const id = this.store.createId()
     const ref = this.store.doc('/project/' + projectId).ref
     return this.store.collection('task').doc(id).set({

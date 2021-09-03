@@ -2,6 +2,7 @@ import {Component, OnInit, Output, OnDestroy} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Subject} from 'rxjs';
+import {first} from 'rxjs/operators';
 
 import {AddRecordService} from "./add-record.service";
 
@@ -10,7 +11,7 @@ import {AddRecordService} from "./add-record.service";
   templateUrl: './add-record.component.html',
   styleUrls: ['./add-record.component.scss']
 })
-export class AddRecordComponent implements OnInit, OnDestroy {
+export class AddRecordComponent implements OnInit {
   addForm = new FormGroup({
     company: new FormControl(''),
     project: new FormControl(''),
@@ -20,10 +21,7 @@ export class AddRecordComponent implements OnInit, OnDestroy {
   company: any[] = []
   project: any[] = []
   task: any[] = []
-  companySub: any
-  projectSub: any
-  taskSub: any
-  saveSub: any
+
   @Output() loading :Subject<boolean> = new Subject();
 
   constructor(private data: AddRecordService, private _snackBar: MatSnackBar) {
@@ -31,7 +29,7 @@ export class AddRecordComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loading.next(true)
-    this.companySub = this.data.getCompany().subscribe(companies => {
+    this.data.getCompany().pipe(first()).subscribe(companies => {
       this.company = companies;
     })
   }
@@ -43,8 +41,7 @@ export class AddRecordComponent implements OnInit, OnDestroy {
     this.project = []
     this.task = []
     const companyId = this.addForm.get('company')?.value
-    this.projectSub?.unsubscribe()
-    this.projectSub = this.data.getProject(companyId).subscribe(projects => {
+    this.data.getProject(companyId).pipe(first()).subscribe(projects => {
       this.project = projects;
       this.loading.next(false)
     })
@@ -55,8 +52,7 @@ export class AddRecordComponent implements OnInit, OnDestroy {
     this.addForm.get('task')?.setValue('')
     this.task = []
     const projectId = this.addForm.get('project')?.value
-    this.taskSub?.unsubscribe();
-    this.taskSub = this.data.getTask(projectId).subscribe(projects => {
+    this.data.getTask(projectId).pipe(first()).subscribe(projects => {
       this.task = projects
       this.loading.next(false)
     })
@@ -69,8 +65,7 @@ export class AddRecordComponent implements OnInit, OnDestroy {
       const projectId = this.addForm.get('project')?.value;
       const task = this.addForm.get('task')?.value;
       const hours = +this.addForm.get('hours')?.value;
-      this.saveSub?.unsubscribe();
-      this.saveSub = this.data.saveRecord(companyId, projectId, task, hours).subscribe(() => {
+     this.data.saveRecord(companyId, projectId, task, hours).pipe(first()).subscribe(() => {
         this._snackBar.open('record saved', '', {
           duration: 5000
         })
@@ -84,11 +79,6 @@ export class AddRecordComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    this.companySub?.unsubscribe()
-    this.projectSub?.unsubscribe()
-    this.taskSub?.unsubscribe()
-    this.saveSub?.unsubscribe()
-  }
+
 
 }

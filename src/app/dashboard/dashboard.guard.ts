@@ -21,7 +21,7 @@ export class DashboardGuard implements CanActivate {
         } else {
           resolve(true)
         }
-      }).then(() => console.log("auth checked"))
+      }).then()
     });
   }
 

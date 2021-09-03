@@ -14,6 +14,7 @@ export class LoginGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return new Promise((resolve, reject) => {
+
       this.auth.onAuthStateChanged((user) => {
         if (user) {
           this.router.navigate(['/dashboard'])
@@ -21,7 +22,7 @@ export class LoginGuard implements CanActivate {
         } else {
           resolve(true)
         }
-      }).then(() => console.log("auth checked"))
+      }).then()
     });
   }
 

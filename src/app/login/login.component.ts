@@ -22,17 +22,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
+  async login() {
     this.progress = true;
-    const email = this.loginForm.get('email')?.value
-    const password = this.loginForm.get('password')?.value
+    // @ts-ignore
+    const email = this.loginForm.get('email').value
+    // @ts-ignore
+    const password = this.loginForm.get('password').value
 
-    this.auth.signInWithEmailAndPassword(email, password).then(result => {
-        this._snackBar.open("hello " + result.user?.email, '', {
+    await this.auth.signInWithEmailAndPassword(email, password).then(result => {
+      // @ts-ignore
+      this._snackBar.open("hello " + result.user.email, '', {
           duration: 5000
         });
       this.progress = false;
-      return this.router.navigate(['/login']);
+      return this.router.navigate(['/dashboard']);
       }
     ).catch(()=>{
       this._snackBar.open("this user not found", '', {

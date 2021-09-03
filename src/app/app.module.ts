@@ -14,7 +14,6 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
   ],
   imports: [
     AppRoutingModule,
-    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
