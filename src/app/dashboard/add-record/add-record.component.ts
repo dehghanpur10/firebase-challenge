@@ -36,11 +36,14 @@ export class AddRecordComponent implements OnInit {
 
   getProject() {
     this.loading.next(true)
-    this.addForm.get('project')?.setValue('')
-    this.addForm.get('task')?.setValue('')
+    // @ts-ignore
+    this.addForm.get('project').setValue('')
+    // @ts-ignore
+    this.addForm.get('task').setValue('')
     this.project = []
     this.task = []
-    const companyId = this.addForm.get('company')?.value
+    // @ts-ignore
+    const companyId = this.addForm.get('company').value
     this.data.getProject(companyId).pipe(first()).subscribe(projects => {
       this.project = projects;
       this.loading.next(false)
@@ -49,22 +52,27 @@ export class AddRecordComponent implements OnInit {
 
   getTask() {
     this.loading.next(true)
-    this.addForm.get('task')?.setValue('')
+    // @ts-ignore
+    this.addForm.get('task').setValue('')
     this.task = []
-    const projectId = this.addForm.get('project')?.value
+    // @ts-ignore
+    const projectId = this.addForm.get('project').value
     this.data.getTask(projectId).pipe(first()).subscribe(projects => {
       this.task = projects
       this.loading.next(false)
     })
   }
-
   save() {
     this.loading.next(true)
     if (this.addForm.valid) {
-      const companyId = this.addForm.get('company')?.value;
-      const projectId = this.addForm.get('project')?.value;
-      const task = this.addForm.get('task')?.value;
-      const hours = +this.addForm.get('hours')?.value;
+      // @ts-ignore
+      const companyId = this.addForm.get('company').value;
+      // @ts-ignore
+      const projectId = this.addForm.get('project').value;
+      // @ts-ignore
+      const task = this.addForm.get('task').value;
+      // @ts-ignore
+      const hours = +this.addForm.get('hours').value;
      this.data.saveRecord(companyId, projectId, task, hours).pipe(first()).subscribe(() => {
         this._snackBar.open('record saved', '', {
           duration: 5000

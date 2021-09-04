@@ -5,6 +5,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
 import { ReactiveFormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
 
 describe('LoginComponent', () => {
   let component: LoginComponent
@@ -19,7 +20,7 @@ describe('LoginComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [ReactiveFormsModule, SharedModule],
+      imports: [CommonModule,ReactiveFormsModule, SharedModule],
       providers: [
         {provide: Router, useValue: routerSpy},
         {provide: AngularFireAuth, useValue: fireAuthSpy},

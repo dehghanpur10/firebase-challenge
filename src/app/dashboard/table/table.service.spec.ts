@@ -27,11 +27,17 @@ describe('TableService', () => {
       {id: '2', name: 'record 2'}
     ];
     // @ts-ignore
-    angularFireStore.collection.and.returnValue({
-      valueChanges: () => {
-        return of(records);
+    angularFireStore.collection=(name,callback)=> {
+      callback({
+        // @ts-ignore
+        orderBy:(arg)=>{}
+      })
+      return{
+        valueChanges: () => {
+          return of(records);
+        }
       }
-    })
+    }
 
     service.getCompleteRecord = (record: any) => {
       return of(record)

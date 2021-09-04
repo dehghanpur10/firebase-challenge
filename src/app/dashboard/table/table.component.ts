@@ -24,7 +24,7 @@ export class TableComponent implements OnInit, OnDestroy {
   constructor(private record: TableService, private _snackBar: MatSnackBar) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loading.next(true)
     this.subscription = this.record.fetchData().subscribe(records => {
       this.listLength = records.length
@@ -39,13 +39,13 @@ export class TableComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe()
   }
 
-  deleteRecord(id: string) {
+  async deleteRecord(id: string) {
     this.loading.next(true)
 
     if (this.listLength == 1) {
       this.initTable([])
     }
-    this.record.deleteRecord(id).then(r => {
+    await this.record.deleteRecord(id).then(r => {
       this.loading.next(false)
       this._snackBar.open('record removed', '', {
         duration: 5000

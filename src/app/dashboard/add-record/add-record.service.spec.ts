@@ -49,11 +49,17 @@ describe('AddRecordService', () => {
     // @ts-ignore
     angularFireStore.doc.and.returnValue({ref: ''})
     // @ts-ignore
-    angularFireStore.collection.and.returnValue({
-      valueChanges: () => {
-        return of(projects);
+    angularFireStore.collection=(name,callback)=> {
+      callback({
+        // @ts-ignore
+        where:(arg1,arg2,arg3)=>{}
+      })
+      return{
+        valueChanges: () => {
+          return of(projects);
+        }
       }
-    })
+    }
 
     service.getProject('1').subscribe(p => {
       expect(p).toEqual(projects);
@@ -69,11 +75,17 @@ describe('AddRecordService', () => {
     // @ts-ignore
     angularFireStore.doc.and.returnValue({ref: ''})
     // @ts-ignore
-    angularFireStore.collection.and.returnValue({
-      valueChanges: () => {
-        return of(tasks);
+    angularFireStore.collection=(name,callback)=> {
+      callback({
+        // @ts-ignore
+        where:(arg1,arg2,arg3)=>{}
+      })
+      return{
+        valueChanges: () => {
+          return of(tasks);
+        }
       }
-    })
+    }
 
     service.getTask('1').subscribe(t => {
       expect(t).toEqual(tasks);
@@ -105,11 +117,17 @@ describe('AddRecordService', () => {
   })
   it('should be create record with new Task', (done: DoneFn) => {
     // @ts-ignore
-    angularFireStore.collection.and.returnValue({
-      valueChanges: () => {
-        return of([]);
+    angularFireStore.collection=(name,callback)=> {
+      callback({
+        // @ts-ignore
+        where:(arg1,arg2,arg3)=>{}
+      })
+      return{
+        valueChanges: () => {
+          return of([]);
+        }
       }
-    })
+    }
     service.createTask = (name: string, projectId: string) => {
       return Promise.resolve('1')
     }

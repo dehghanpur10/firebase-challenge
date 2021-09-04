@@ -3,6 +3,7 @@ import {ComponentFixture, TestBed} from "@angular/core/testing";
 import {SharedModule} from "../../shared/shared.module";
 import { DebugElement,EventEmitter } from "@angular/core";
 import {By} from "@angular/platform-browser";
+import {CommonModule} from "@angular/common";
 
 describe('TopToolBarComponent', () => {
   let component:TopToolBarComponent;
@@ -10,7 +11,7 @@ describe('TopToolBarComponent', () => {
   beforeEach(()=>{
     TestBed.configureTestingModule({
       declarations: [TopToolBarComponent],
-      imports: [ SharedModule],
+      imports: [ CommonModule,SharedModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TopToolBarComponent);

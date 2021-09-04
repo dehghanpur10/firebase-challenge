@@ -7,6 +7,7 @@ import {LoginComponent} from "../login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
 import {CommonModule} from "@angular/common";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
 describe('DashboardComponent',()=>{
   let component:DashboardComponent;
@@ -20,13 +21,14 @@ describe('DashboardComponent',()=>{
     const snakeBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
 
     TestBed.configureTestingModule({
-      declarations: [LoginComponent],
-      imports: [CommonModule,SharedModule,ReactiveFormsModule],
+      declarations: [DashboardComponent],
+      imports: [ReactiveFormsModule,CommonModule,SharedModule,],
       providers: [
         {provide: Router, useValue: routerSpy},
         {provide: AngularFireAuth, useValue: fireAuthSpy},
         {provide: MatSnackBar, useValue: snakeBarSpy},
-      ]
+      ],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardComponent);
