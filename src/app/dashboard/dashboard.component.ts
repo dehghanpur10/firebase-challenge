@@ -16,8 +16,8 @@ export class DashboardComponent implements OnInit {
   constructor(private auth: AngularFireAuth, private router: Router, private _snackBar: MatSnackBar) {
   }
 
-  ngOnInit(): void {
-    this.auth.onAuthStateChanged((user) => {
+  async ngOnInit() {
+    await this.auth.onAuthStateChanged((user) => {
       // @ts-ignore
       this.email = user.email;
     }).then()
@@ -31,11 +31,11 @@ export class DashboardComponent implements OnInit {
     this.drawer.toggle()
   }
 
-  singOut() {
-    this.auth.signOut().then(r => {
+  async singOut() {
+    await this.auth.signOut().then(r => {
       this.router.navigate(['/login'])
     }).catch(e => {
-      this._snackBar.open('There is a problem', '', {
+      this._snackBar.open('A problem has occurred', '', {
         duration: 5000
       })
     })

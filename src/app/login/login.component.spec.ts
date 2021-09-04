@@ -3,9 +3,8 @@ import {LoginComponent} from "./login.component";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SharedModule} from "../shared/shared.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormsModule} from "@angular/forms";
 
 describe('LoginComponent', () => {
   let component: LoginComponent
