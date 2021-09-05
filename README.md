@@ -1,27 +1,38 @@
-# FirebaseChallenge
+# Firebase Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
+> To visit project click [here](https://moh-deh-firebase-challenge.web.app)
 
-## Development server
+Email: m.dehghanpour10@gmail.com
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Password: 111111
+## Details
+There are two page in this challenge:
+1. login page
+2. dashboard page
 
-## Code scaffolding
+### login page
+If user want to go to dashboard page, first should enter email and password in login page then user could use dashboard page.
+if user has already logged in, it will redirect to dashboard page. if any user not found by email and password that entered,message "user not found" is display,
+but email and password is correct so user redirect to dashboard page and message "hello {user email}" is displayed.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### dashboard page
+Dashboard page Composed of to section:
+1. add record section
+2. table of records
 
-## Build
+**add record section**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+first, the names of companies are fetched form firebase, then when user select each company, the project of it company are fetched and finally when the user selects each project, its tasks are fetched.
+user can select each of this task, and can enter new task too,then if record is saved, new task add to list of task for this project.
 
-## Running unit tests
+**table records**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This table show each record that save in add record section. Records sorted by their hours.Each record contain of five column :
 
-## Running end-to-end tests
+- company 
+- project
+- task 
+- hours
+- delete
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+There is icon of delete in delete column to remove record, when each record removed, is displayed message for it.
