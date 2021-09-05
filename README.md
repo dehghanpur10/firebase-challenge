@@ -36,3 +36,17 @@ This table show each record that save in add record section. Records sorted by t
 - delete
 
 There is icon of delete in delete column to remove record, when each record removed, is displayed message for it.
+
+
+## @angular/fire
+In this project for communicate to firebase datastore and firebase auth has used @angular/fire.
+
+## services
+2 service has used in this project:
+1. add-record service: The task of this service is registration of new record .
+2. table service: The task of this service is fetch records from firebase and delete records.
+
+## guards
+2 guards has used in this project:
+1. login guard: This guard protect login page, when user already entered
+2. dashboard guard: This guard protect dashboard page, when user didn't enter
